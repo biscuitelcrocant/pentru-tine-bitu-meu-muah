@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentru Tine ❤️</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background-color: #fff0f5; padding: 20px; margin: 0; }
+        .box { background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-width: 320px; margin: 40px auto; border: 2px solid #ffc1e3; }
+        .emoji { font-size: 100px; display: block; margin-bottom: 20px; }
+        h2, h3 { color: #d81b60; margin-bottom: 15px; }
+        button { background: #ff69b4; color: white; border: none; padding: 15px; border-radius: 50px; cursor: pointer; font-size: 18px; margin: 10px auto; width: 100%; font-weight: bold; }
+        .hidden { display: none; }
+        input[type=range] { width: 100%; accent-color: #ff69b4; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div id="step0">
+        <span class="emoji">🎁</span>
+        <h2>O surpriză pentru tine!</h2>
+        <button onclick="startEverything()">DESCHIDE</button>
+    </div>
+
+    <div id="step1" class="hidden">
+        <span class="emoji">😎</span>
+        <h3>Ești pe fază?</h3>
+        <button onclick="showStep(2)">Da, normal!</button>
+    </div>
+
+    <div id="step2" class="hidden">
+        <h3>Cât de mult mă iubești? ❤️</h3>
+        <input type="range" id="loveSlider" min="1" max="100" value="1" oninput="checkSlider()">
+        <p id="sliderText">Trage de bară până la capăt! ☝️</p>
+        <button id="nextBtn" class="hidden" onclick="showStep(3)">Următorul</button>
+    </div>
+
+    <div id="step3" class="hidden">
+        <span class="emoji">📶</span>
+        <p><b>Știai că... iubirea e ca Wi-Fi-ul?</b></p>
+        <p>Când e slabă, te apropii mai mult și tot la mine ajungi... ☝️</p>
+        <button onclick="showStep(4)">Hai să continuăm</button>
+    </div>
+
+    <div id="step4" class="hidden">
+        <h2>Vrei să fii Valentinul meu? ❤️</h2>
+        <button onclick="showStep(5)">DA! ❤️</button>
+    </div>
+
+    <div id="step5" class="hidden">
+        <span class="emoji">👩‍❤️‍👨</span>
+        <h1>Te iubu mult de tot! ❤️ 🥰</h1>
+        <p>Sper că ți-a plăcut!</p>
+    </div>
+</div>
+
+<script>
+    function startEverything() {
+        window.open("https://www.youtube.com/watch?v=zIzrvRRa0zU", "_blank");
+        showStep(1);
+    }
+    function showStep(n) {
+        document.querySelectorAll('.box > div').forEach(div => div.classList.add('hidden'));
+        document.getElementById('step' + n).classList.remove('hidden');
+    }
+    function checkSlider() {
+        if (document.getElementById('loveSlider').value >= 98) {
+            document.getElementById('nextBtn').classList.remove('hidden');
+            document.getElementById('sliderText').innerHTML = "Așa da! 😍";
+        }
+    }
+</script>
+
+</body>
+</html>
